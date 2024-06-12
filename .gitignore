@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+
+# Expo
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+env/
+venv/
+
+# Docker
+.docker/
+
+# Supabase
+supabase/
+
+# Pinecone
+pinecone/
+
+# LLM and Agent
+claude/
+langchain/
+
+# Documentation
+docs/build/
+
+# Posthog
+posthog/
+.posthog/
