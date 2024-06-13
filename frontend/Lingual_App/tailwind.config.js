@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#FE504F', //off white 
+        primary: '#FBF6FC', //off white 
         secondary: {
           DEFAULT: '#FE504F', //creamcicle red
           100: '#FE7372' //dark mode version
@@ -21,7 +21,10 @@ module.exports = {
           DEFAULT: '#A201FF', // grape purple
           100: '#BE4CFF' //dark mode version
         },
-        black: '#000',
+        black: {
+          DEFAULT: '#111441',
+          100: '#383F66'
+        },
         white: '#fff',
         lightGrey: '#ADB3BC',
         darkGrey: '#455370'

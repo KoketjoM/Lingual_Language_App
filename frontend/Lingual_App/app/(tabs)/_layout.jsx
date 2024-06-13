@@ -12,7 +12,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
                 tintColor={color}
                 className="w-6 h-6"
             />
-            <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`}>
+            <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`} style={{ color: color }}>
                 {name}
             </Text>
         </View>
@@ -26,7 +26,16 @@ const TabsLayout = () => {
         <>
             <Tabs
                 screenOptions={{
-                    tabBarShowLabel: false
+                    tabBarShowLabel: false,
+                    // Because we're in an object, we need to pass the colours manually instead of using tailwind
+                    tabBarActiveTintColor: '#FE504F',
+                    tabBarInactiveTintColor: '#ADB3BC',
+                    tabBarStyle: {
+                        backgroundColor: '#FBF6FC',
+                        borderTopWidth: 1,
+                        borderTopColor: '#FBF7FC',
+                        height: 84,
+                    }
                 }}
             >
 
