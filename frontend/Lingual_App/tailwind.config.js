@@ -14,18 +14,22 @@ module.exports = {
           100: '#FFAD67' //dark mode version
         },
         secondAccent: {
-          DEFAULT: '#004DFF', //vibrant blue
-          100: '#437CFF' //dark mode version
-        },
-        thirdAccent: {
           DEFAULT: '#A201FF', // grape purple
           100: '#BE4CFF' //dark mode version
         },
+        // thirdAccent: {
+        //   DEFAULT: '#004DFF', //vibrant blue
+        //   100: '#437CFF' //dark mode version 
+        // },
         black: {
           DEFAULT: '#111441',
           100: '#383F66'
         },
-        white: '#fff',
+        white: {
+          DEFAULT: '#FBF6FC',
+          100: '#F1E9F2',
+          200: '#E4DAE5',
+        },
         lightGrey: '#ADB3BC',
         darkGrey: '#455370'
       },

@@ -46,7 +46,8 @@ import trash from "../assets/icons/icon-trash-2.png";
 import user from "../assets/icons/icon-user.png";
 import volume from "../assets/icons/icon-volume-2.png";
 import xCircle from "../assets/icons/icon-x-circle.png";
-
+import eye from "../assets/icons/icon-eye.png";
+import eyeOff from "../assets/icons/icon-eye-off.png";
 
 
 export default {
@@ -97,4 +98,6 @@ export default {
   moon,
   sun,
   trash,
+  eye,
+  eyeOff,
 };
