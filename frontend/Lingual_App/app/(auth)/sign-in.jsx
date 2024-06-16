@@ -27,6 +27,10 @@ const SignIn = () => {
 
     // USED FOR DEVELOPMENT ONLY
     const submit = () => {
+
+        // Set to global state . . .
+
+        // Route to home page
         router.replace('/home')
     }
     //

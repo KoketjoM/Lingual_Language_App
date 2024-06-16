@@ -31,6 +31,10 @@ const SignUp = () => {
 
     // USED FOR DEVELOPMENT
     const submit = () => {
+
+        // Set to global state . . .
+
+        // Route to home page
         router.replace('/home')
     }
     //
