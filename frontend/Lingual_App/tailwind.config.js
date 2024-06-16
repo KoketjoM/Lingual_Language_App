@@ -17,10 +17,6 @@ module.exports = {
           DEFAULT: '#A201FF', // grape purple
           100: '#BE4CFF' //dark mode version
         },
-        // thirdAccent: {
-        //   DEFAULT: '#004DFF', //vibrant blue
-        //   100: '#437CFF' //dark mode version 
-        // },
         black: {
           DEFAULT: '#111441',
           100: '#383F66'

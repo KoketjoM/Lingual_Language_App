@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Link } from 'expo-router'
@@ -7,6 +7,7 @@ import { images } from '../../constants'
 import FormField from '../../components/formField'
 
 import CustomButton from '../../components/customButton'
+import IconButton from '../../components/iconButton'
 
 const SignIn = () => {
 
@@ -63,6 +64,41 @@ const SignIn = () => {
                         </Text>
                         <Link href="/sign-up" className="text-lg font-psemibold text-secondary">Sign Up</Link>
                     </View>
+
+                    {/* Goole and apple log in */}
+                    <View className="justify-center pt-5 flex-row gap-2 items-center">
+                        <Image
+                            source={images.path}
+                            tintColor="#455370"
+                            resizeMode='contain'
+                            className="w-16"
+                        />
+                        <Text className="text-sm text-darkGrey font-pregular">Or sign up with</Text>
+                        <Image
+                            source={images.path}
+                            tintColor="#455370"
+                            resizeMode='contain'
+                            className="w-16"
+                        />
+                    </View>
+
+                    {/* Logo Buttons */}
+                    <View className="pt-5 flex-row gap-2 items-center justify-evenly">
+                        <IconButton
+                            image={images.googleLogo}
+                            handlePress={submit}
+                            isLoading={isSubmitting}
+                            containerStyles="w-16 h-16 rounded-full justify-center items-center border-2 border-black-100"
+                        />
+
+                        <IconButton
+                            image={images.appleLogo}
+                            handlePress={submit}
+                            isLoading={isSubmitting}
+                            containerStyles="w-16 h-16 rounded-full justify-center items-center border-2 border-black-100"
+                        />
+                    </View>
+
                 </View>
             </ScrollView>
 

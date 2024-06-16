@@ -7,6 +7,7 @@ import { images } from '../../constants'
 
 import FormField from '../../components/formField'
 import CustomButton from '../../components/customButton'
+import IconButton from '../../components/iconButton'
 
 const SignUp = () => {
 
@@ -32,15 +33,7 @@ const SignUp = () => {
                         className="w-[230px] h-[70px]"
                     />
 
-                    <Text className="text-2xl text-black text-semibold mt-10 font-psemibold">Log in to Lingual</Text>
-
-                    {/* Username form field */}
-                    <FormField
-                        title="Username"
-                        value={form.username}
-                        handleChangeText={(e) => setform({ ...form, username: e })}
-                        otherStyles="mt-7"
-                    />
+                    <Text className="text-2xl text-black text-semibold mt-10 font-psemibold">Sign Up to Lingual</Text>
 
                     {/* Email form field */}
                     <FormField
@@ -72,6 +65,41 @@ const SignUp = () => {
                         </Text>
                         <Link href="/sign-in" className="text-lg font-psemibold text-secondary">Log In</Link>
                     </View>
+
+                    {/* Goole and apple log in */}
+                    <View className="justify-center pt-5 flex-row gap-2 items-center">
+                        <Image
+                            source={images.path}
+                            tintColor="#455370"
+                            resizeMode='contain'
+                            className="w-16"
+                        />
+                        <Text className="text-sm text-darkGrey font-pregular">Or sign up with</Text>
+                        <Image
+                            source={images.path}
+                            tintColor="#455370"
+                            resizeMode='contain'
+                            className="w-16"
+                        />
+                    </View>
+
+                    {/* Logo Buttons */}
+                    <View className="pt-5 flex-row gap-2 items-center justify-evenly">
+                        <IconButton
+                            image={images.googleLogo}
+                            handlePress={submit}
+                            isLoading={isSubmitting}
+                            containerStyles="w-16 h-16 rounded-full justify-center items-center border-2 border-black-100"
+                        />
+
+                        <IconButton
+                            image={images.appleLogo}
+                            handlePress={submit}
+                            isLoading={isSubmitting}
+                            containerStyles="w-16 h-16 rounded-full justify-center items-center border-2 border-black-100"
+                        />
+                    </View>
+
                 </View>
             </ScrollView>
 
