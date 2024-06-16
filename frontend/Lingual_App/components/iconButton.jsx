@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
-const IconButton = ({ image, handlePress, containerStyles, imageStyles, isLoading }) => {
+const IconButton = ({ image, handlePress, containerStyles, imageStyles, isLoading, iconTint }) => {
     return (
         <TouchableOpacity
             onPress={handlePress}
@@ -14,6 +14,7 @@ const IconButton = ({ image, handlePress, containerStyles, imageStyles, isLoadin
                 source={image}
                 resizeMode='contain'
                 className={`w-8 h-8 px-1 ${imageStyles} ${isLoading ? 'opacity-50' : ''}`}
+                tintColor={iconTint}
             />
         </TouchableOpacity>
     )
