@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import { supabase } from '../../utils/supabase'
 import { AppState, Alert } from 'react-native'
 
@@ -24,6 +24,13 @@ AppState.addEventListener('change', (state) => {
 })
 
 const SignIn = () => {
+
+    // USED FOR DEVELOPMENT ONLY
+    const submit = () => {
+        router.replace('/home')
+    }
+    //
+
     // Supabase
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -39,7 +46,6 @@ const SignIn = () => {
         if (error) Alert.alert(error.message)
         setLoading(false)
     }
-
     // End Supabase
 
     return (
@@ -75,7 +81,8 @@ const SignIn = () => {
 
                     <CustomButton
                         title="Sign-In"
-                        handlePress={() => signInWithEmail()}
+                        // handlePress={() => signInWithEmail()}
+                        handlePress={submit}
                         containerStyles="mt-7"
                         isLoading={loading}
                     />

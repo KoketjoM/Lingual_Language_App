@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import { supabase } from '../../utils/supabase'
 
 // Authentication
@@ -29,11 +29,13 @@ const SignUp = () => {
 
     const [isSubmitting, setisSubmitting] = useState(false)
 
+    // USED FOR DEVELOPMENT
     const submit = () => {
-
+        router.replace('/home')
     }
+    //
 
-    // Supabase Auth
+    // Supabase Auth (must set up deeplinking: https://supabase.com/docs/guides/auth/native-mobile-deep-linking?platform=react-native)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -88,7 +90,8 @@ const SignUp = () => {
 
                     <CustomButton
                         title="Sign-Up"
-                        handlePress={() => signUpWithEmail()}
+                        // handlePress={() => signUpWithEmail()}
+                        handlePress={submit}
                         containerStyles="mt-7"
                         isLoading={loading}
                     />
