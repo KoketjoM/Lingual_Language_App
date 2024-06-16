@@ -2,6 +2,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Link } from 'expo-router'
+import { supabase } from '../../utils/supabase'
 
 import { images } from '../../constants'
 import FormField from '../../components/formField'
@@ -10,20 +11,7 @@ import CustomButton from '../../components/customButton'
 import IconButton from '../../components/iconButton'
 
 const SignIn = () => {
-
-    const [form, setform] = useState({
-        email: '',
-        password: ''
-    })
-
-    const [isSubmitting, setisSubmitting] = useState(false)
-
-    const submit = () => {
-
-    }
-
     // Supabase
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -36,21 +24,6 @@ const SignIn = () => {
         })
 
         if (error) Alert.alert(error.message)
-        setLoading(false)
-    }
-
-    async function signUpWithEmail() {
-        setLoading(true)
-        const {
-            data: { session },
-            error,
-        } = await supabase.auth.signUp({
-            email: email,
-            password: password,
-        })
-
-        if (error) Alert.alert(error.message)
-        if (!session) Alert.alert('Please check your inbox for email verification!')
         setLoading(false)
     }
 
@@ -71,8 +44,8 @@ const SignIn = () => {
                     {/* Email form field */}
                     <FormField
                         title="Email"
-                        value={form.email}
-                        handleChangeText={(e) => setform({ ...form, email: e })}
+                        value={email}
+                        handleChangeText={(text) => setEmail(text)}
                         otherStyles="mt-7"
                         keyboardType="email-address"
                         placeholder='email@address.com'
@@ -81,17 +54,17 @@ const SignIn = () => {
                     {/* Password form field */}
                     <FormField
                         title="Password"
-                        value={form.password}
-                        handleChangeText={(e) => setform({ ...form, password: e })}
+                        value={password}
+                        handleChangeText={(text) => setPassword(text)}
                         otherStyles="mt-7"
                         placeholder='Password'
                     />
 
                     <CustomButton
                         title="Sign-In"
-                        handlePress={submit}
+                        handlePress={() => signInWithEmail()}
                         containerStyles="mt-7"
-                        isLoading={isSubmitting}
+                        isLoading={loading}
                     />
 
                     <View className="justify-center pt-5 flex-row gap-2">
@@ -122,15 +95,15 @@ const SignIn = () => {
                     <View className="pt-5 flex-row gap-2 items-center justify-evenly">
                         <IconButton
                             image={images.googleLogo}
-                            handlePress={submit}
-                            isLoading={isSubmitting}
+                            // handlePress={submit}
+                            isLoading={loading}
                             containerStyles="w-16 h-16 rounded-full justify-center items-center border-2 border-black-100"
                         />
 
                         <IconButton
                             image={images.appleLogo}
-                            handlePress={submit}
-                            isLoading={isSubmitting}
+                            // handlePress={submit}
+                            isLoading={loading}
                             containerStyles="w-16 h-16 rounded-full justify-center items-center border-2 border-black-100"
                         />
                     </View>
