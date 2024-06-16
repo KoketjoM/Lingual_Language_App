@@ -22,6 +22,40 @@ const SignIn = () => {
 
     }
 
+    // Supabase
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    async function signInWithEmail() {
+        setLoading(true)
+        const { error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password,
+        })
+
+        if (error) Alert.alert(error.message)
+        setLoading(false)
+    }
+
+    async function signUpWithEmail() {
+        setLoading(true)
+        const {
+            data: { session },
+            error,
+        } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+        })
+
+        if (error) Alert.alert(error.message)
+        if (!session) Alert.alert('Please check your inbox for email verification!')
+        setLoading(false)
+    }
+
+    // End Supabase
+
     return (
         <SafeAreaView className="bg-primary h-full">
             <ScrollView>
@@ -41,6 +75,7 @@ const SignIn = () => {
                         handleChangeText={(e) => setform({ ...form, email: e })}
                         otherStyles="mt-7"
                         keyboardType="email-address"
+                        placeholder='email@address.com'
                     />
 
                     {/* Password form field */}
@@ -49,6 +84,7 @@ const SignIn = () => {
                         value={form.password}
                         handleChangeText={(e) => setform({ ...form, password: e })}
                         otherStyles="mt-7"
+                        placeholder='Password'
                     />
 
                     <CustomButton
